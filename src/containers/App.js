@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Header,Footer} from '../components'
-import {Home, Login} from './'
+import {Home, Login, Layout} from './'
 import { Route, Switch } from 'react-router-dom';
 class App extends Component {
   render() {
@@ -8,14 +7,12 @@ class App extends Component {
     let {location} = this.props;
     let isAuth = exPath.includes(location.pathname);
     return (
-      <div>
-        {!isAuth && <Header />}
+      <Layout isAuth={isAuth}>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
         </Switch>
-        <Footer/>
-      </div>
+      </Layout>
     );
   }
 }
