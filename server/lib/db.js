@@ -28,7 +28,7 @@ const query = (sql, args) => {
                 }
                 console.log('sql  : ', sql);
                 console.log('agrs : ', args);
-                console.log(`rows(${rows.length}) : `,rows);
+                console.log(`rows(${rows.length}) : `, rows);
                 /*
                 resolve({
                     status: 'ok',
@@ -48,5 +48,6 @@ const close = (db) => {
 }
 
 export default ({
-    query
+    query,
+    getConnection
 })
