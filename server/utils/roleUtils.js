@@ -1,9 +1,9 @@
 export function requireRole(role) {
     return function (req, res, next) {
-        let roleArr = (req.session.loginInfo && req.session.loginInfo.role) || [];
-        
-        console.log(req.originalUrl,'method role : ', role, ', user role : ', roleArr);
-        
+        let roleArr = (req.session.role) || [];
+
+        console.log(req.originalUrl, 'method role : ', role, ', user role : ', roleArr);
+
         for (let inRole of roleArr) {
             // console.log(role.includes(inRole["ROLE"]));
             if (role.includes(inRole["ROLE"])) {
