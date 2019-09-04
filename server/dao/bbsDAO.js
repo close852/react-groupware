@@ -1,10 +1,17 @@
 import db from '../lib/db'
 
-const findAllBbs = (idx) => {
+const findAllBbs = () => {
     let sql = `SELECT  * FROM BBS`;
     let args = []; //[idx];
     return db.query(sql, args).catch(err => err);
 }
+
+const findBbsById = (bbs_id) => {
+    let sql = `SELECT  * FROM BBS WHERE BBS_ID =?`;
+    let args = [bbs_id]; //[idx];
+    return db.query(sql, args).catch(err => err);
+}
+
 
 const deleteBbsById = (bbs_id) => {
     let sql = `DELETE FROM BBS WHERE BBS_ID = ?`;
@@ -26,5 +33,8 @@ const insertBbs = async (bbs_name, description, use_yn) => {
 
 
 export default ({
-    findSampleById
+    findAllBbs,
+    findBbsById,
+    deleteBbsById,
+    insertBbs
 })

@@ -20,6 +20,32 @@ router.get('/:id', async (req, res) => {
 })
 
 
+//게시판 조회
+router.get('/', async (req, res) => {
+    const {
+        bbs_id
+    } = req.params;
+    const {
+        orderBy,
+        sortType,
+        pageSize,
+        page
+    } = req.query;
+    console.log('req.params >>>>> ', req.params)
+    const paging = {
+        orderBy,
+        sortType,
+        startWith: (Number(page) - 1) * pageSize,
+        pageSize
+    }
+    const result = await articleDAO.findArticleByBbsId(bbs_id, paging);
+    return res.json({
+        data: result
+    })
+})
+
+
+
 /**
  * 게시글 조회
  */
