@@ -1,8 +1,8 @@
 import db from '../lib/db'
 
-let getUserById = async (username, password) => {
-    let sql = `SELECT * FROM USER WHERE username = ? and password = ?`;
-    let args = [username, password];
+let findAppById = async (app_id) => {
+    let sql = `SELECT * FROM APP WHERE app_id = ?`;
+    let args = [app_id];
 
     try {
         return db.query(sql, args).catch(err => err);
@@ -10,8 +10,8 @@ let getUserById = async (username, password) => {
         return err;
     }
 }
-let insertUser = async (username, password) => {
-    let sql = `INSERT INTO USER (USERNAME, PASSWORD)  VALUES ( ? , ? )`;
+let insertApp = async (username, password) => {
+    let sql = `INSERT INTO APP (app_id,)  VALUES ( nextval(mw_seq), ? )`;
     let args = [username, password];
 
     try {
@@ -22,6 +22,6 @@ let insertUser = async (username, password) => {
 }
 
 export default ({
-    getUserById,
-    insertUser
+    findAppById,
+    insertApp
 })

@@ -2,7 +2,7 @@ import express from 'express'
 import userDAO from '../dao/userDAO'
 import roleDAO from '../dao/roleDAO'
 import { requireRole } from '../utils/roleUtils'
-import { passwordEncode, passwordCompare } from '../utils/securityUtils'
+import { passwordEncode } from '../utils/securityUtils'
 
 const router = express.Router();
 /**

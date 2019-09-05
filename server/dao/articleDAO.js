@@ -12,8 +12,7 @@ const deleteArticleById = async (articleId) => {
 
     return db.query(sql, args).catch(err => err);
 }
-
-const findAllArticleByBbsId = (bbs_id, paging) => {
+const findArticleByBbsId = (bbs_id, paging) => {
     const orderBy = paging.orderBy && escape(paging.orderBy);
     const sortType = (paging.sortType && escape(paging.sortType)) || '';
     const startWith = Number(paging.startWith);
@@ -51,7 +50,7 @@ export default ({
     findArticleById,
     insertArticle,
     updateArticle,
-    findAllArticleByBbsId,
+    findArticleByBbsId,
     updateDynamicArticle,
     deleteArticleById
 })
